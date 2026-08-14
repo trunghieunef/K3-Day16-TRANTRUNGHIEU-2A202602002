@@ -1,4 +1,14 @@
+# =====================================================================
+# Checklist so 6 - KHONG duoc nap kem theo thu muc terraform/:
+#   - state            : *.tfstate, *.tfstate.*
+#   - thu muc .terraform/
+#   - private/pub key  : lab-key, lab-key.pub
+#   - Kaggle credential: kaggle.json
+# Tat ca cac file nay deu bi ignore (khong vao commit/zip submission).
+# =====================================================================
+
 # Terraform local state and backups
+**/.terraform/
 **/.terraform/*
 *.tfstate
 *.tfstate.*
