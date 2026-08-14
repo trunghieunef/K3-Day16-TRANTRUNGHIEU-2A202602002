@@ -1,0 +1,17 @@
+{
+  "instance_type": "t3.micro",
+  "python": "3.10.12",
+  "load_data_time_sec": 2.378,
+  "rows": 284807,
+  "cols": 31,
+  "training_time_sec": 2.61,
+  "best_iteration": 1,
+  "auc_roc": 0.922357,
+  "accuracy": 0.999122,
+  "f1_score": 0.757282,
+  "precision": 0.722222,
+  "recall": 0.795918,
+  "inference_latency_1row_ms": 2.824,
+  "inference_throughput_1000rows_sec": 0.001,
+  "inference_throughput_rows_per_sec": 1025515.9
+}
