@@ -9,12 +9,12 @@
 
 | # | Deliverable | Trạng thái | Minh chứng |
 |---|---|---|---|
-| 1 | Terminal chạy `benchmark.py` (đủ output) | ✅ Hoàn thành | `sceenchot/benchmark.png` |
+| 1 | Terminal chạy `benchmark.py` (đủ output) | ✅ Hoàn thành | `screenshot/benchmark.png` |
 | 2 | File `benchmark_result.json` đủ quality + performance metrics | ✅ Hoàn thành | `terraform/benchmark_result.json` |
-| 3 | Screenshot tài nguyên CPU / RAM / Network | ✅ Hoàn thành | `sceenchot/CPU.png`, `sceenchot/RAM.png`, `sceenchot/Network.png` |
+| 3 | Screenshot tài nguyên CPU / RAM / Network | ✅ Hoàn thành | `screenshot/CPU.png`, `screenshot/RAM.png`, `screenshot/Network.png` |
 | 4 | Screenshot AWS Billing / Cost Dashboard | ✅ Bỏ qua theo giáo viên | Thời gian chạy rất ngắn (< 1h) nên chi phí chưa hiển thị trên Cost Dashboard (xem mục 7) |
 | 5 | Mã nguồn `terraform/` đã chạy thành công | ✅ Hoàn thành | `terraform/` (init → apply → benchmark → destroy) |
-| 6 | Screenshot `terraform destroy` / console trống | ✅ Hoàn thành | `sceenchot/Destroy.png` (destroy state trống, xem mục 8) |
+| 6 | Screenshot `terraform destroy` / console trống | ✅ Hoàn thành | `screenshot/Destroy.png` (destroy state trống, xem mục 8) |
 | 7 | Báo cáo phân tích ngắn | ✅ Hoàn thành | File này |
 
 ## 2. Kiến trúc hạ tầng
@@ -83,7 +83,7 @@ graph LR
 | Inference latency (1 row) | 2.824 ms |
 | Inference throughput (1000 rows) | ~1,025,516 rows/s |
 
-Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
+Minh chứng: `screenshot/benchmark.png` + `terraform/benchmark_result.json`.
 
 ### Giải thích kết quả
 - **Load 2.378s** cho 284,807 dòng × 31 cột nhờ pandas + downcast `float32`.
@@ -94,7 +94,7 @@ Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
 
 ## 6. Monitoring & phân tích tài nguyên
 
-**Screenshot:** CPU → `sceenchot/CPU.png` · RAM → `sceenchot/RAM.png` · Network → `sceenchot/Network.png`
+**Screenshot:** CPU → `screenshot/CPU.png` · RAM → `screenshot/RAM.png` · Network → `screenshot/Network.png`
 
 ### Phân tích
 - **CPU:** LightGBM cấu hình `num_threads=2`, training ngắn (2.61s) nên CPU utilization tăng tập trung trong khoảnh khắc train/predict rồi hạ nhanh — hợp lý với workload batch tắt-mở.
@@ -127,7 +127,7 @@ Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
 - `terraform.tfstate.backup` giữ lại trạng thái đã deploy để đối chiếu.
 - Xác minh AWS Console: EC2 / VPC / NAT Gateway không còn resource tính phí.
 
-**Minh chứng ảnh:** `sceenchot/Destroy.png` (kèm `terraform state list` rỗng + `terraform show` → `The state file is empty. No resources are represented.`).
+**Minh chứng ảnh:** `screenshot/Destroy.png` (kèm `terraform state list` rỗng + `terraform show` → `The state file is empty. No resources are represented.`).
 
 ## 9. Nhận xét chung
 
