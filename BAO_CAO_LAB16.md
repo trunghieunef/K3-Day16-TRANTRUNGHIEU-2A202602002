@@ -12,7 +12,7 @@
 | 1 | Terminal chạy `benchmark.py` (đủ output) | ✅ Hoàn thành | `sceenchot/benchmark.png` |
 | 2 | File `benchmark_result.json` đủ quality + performance metrics | ✅ Hoàn thành | `terraform/benchmark_result.json` |
 | 3 | Screenshot tài nguyên CPU / RAM / Network | ✅ Hoàn thành | `sceenchot/CPU.png`, `sceenchot/RAM.png`, `sceenchot/Network.png` |
-| 4 | Screenshot AWS Billing / Cost Dashboard | ⏳ Chèn ảnh | `sceenchot/Billing.png` (hướng dẫn ở mục 7) |
+| 4 | Screenshot AWS Billing / Cost Dashboard | ✅ Bỏ qua theo giáo viên | Thời gian chạy rất ngắn (< 1h) nên chi phí chưa hiển thị trên Cost Dashboard (xem mục 7) |
 | 5 | Mã nguồn `terraform/` đã chạy thành công | ✅ Hoàn thành | `terraform/` (init → apply → benchmark → destroy) |
 | 6 | Screenshot `terraform destroy` / console trống | ✅ Hoàn thành | `sceenchot/Destroy.png` (destroy state trống, xem mục 8) |
 | 7 | Báo cáo phân tích ngắn | ✅ Hoàn thành | File này |
@@ -117,8 +117,8 @@ Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
 
 > Lần đo thực tế chạy compute node nhỏ hơn (`t3.micro`) và được destroy ngay sau đó nên tổng chi phí phát sinh thực tế thấp hơn ước tính thiết kế.
 
-### Billing evidence (⏳ cần chèn ảnh)
-> AWS Console → **Billing** → **Cost Explorer** hoặc **Bills** (chọn ngày thực hiện lab) → chụp phần thể hiện EC2 & NAT Gateway phát sinh chi phí → lưu file **`sceenchot/Billing.png`** (đường dẫn đã khai trong bảng mục 1).
+### Billing - ghi nhận quyết định của giáo viên
+> Do thời gian chạy lab rất ngắn (< 1 giờ) nên chi phí chưa kịp hiển thị trên AWS Billing/Cost dashboard; giáo viên đã chấp thuận **không yêu cầu screenshot Billing** cho bài này. Chi phí ước tính vẫn được khai báo ở bảng trên (~$0.10/giờ theo thiết kế).
 
 ## 8. Destroy & xác minh
 
@@ -134,4 +134,4 @@ Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
 1. Toàn bộ workflow IaC tự động (init → validate → plan → apply → benchmark → destroy) hoàn tất ổn định, **không để sót tài nguyên tính phí**.
 2. Dataset 284,807 dòng chạy rất nhanh trên CPU node nhỏ: train 2.61s, inference ~1.03M dòng/s — phù hợp mô hình triển khai Chi phí thấp.
 3. Least-privilege được áp dụng đúng: user/group dùng policy tối thiểu, instance chạy qua IAM Role không mang key.
-4. Cải thiện cho lần sau: chạy đúng instance spec `t3.medium` theo thiết kế, chụp sớm screenshot Billing + Destroy, và không để `kaggle.json` trong thư mục nộp bài (đã thêm vào `.gitignore`, nên xóa & rotate key).
+4. Cải thiện cho lần sau: chạy đúng instance spec `t3.medium` theo thiết kế, và không để `kaggle.json` trong thư mục nộp bài (đã thêm vào `.gitignore`, nên xóa & rotate key).
