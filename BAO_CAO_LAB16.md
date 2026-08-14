@@ -14,7 +14,7 @@
 | 3 | Screenshot tài nguyên CPU / RAM / Network | ✅ Hoàn thành | `sceenchot/CPU.png`, `sceenchot/RAM.png`, `sceenchot/Network.png` |
 | 4 | Screenshot AWS Billing / Cost Dashboard | ⏳ Chèn ảnh | `sceenchot/Billing.png` (hướng dẫn ở mục 7) |
 | 5 | Mã nguồn `terraform/` đã chạy thành công | ✅ Hoàn thành | `terraform/` (init → apply → benchmark → destroy) |
-| 6 | Screenshot `terraform destroy` / console trống | ✅ (state đã trống) + ⏳ ảnh | `sceenchot/Destroy.png` (xem mục 8) |
+| 6 | Screenshot `terraform destroy` / console trống | ✅ Hoàn thành | `sceenchot/Destroy.png` (destroy state trống, xem mục 8) |
 | 7 | Báo cáo phân tích ngắn | ✅ Hoàn thành | File này |
 
 ## 2. Kiến trúc hạ tầng
@@ -127,7 +127,7 @@ Minh chứng: `sceenchot/benchmark.png` + `terraform/benchmark_result.json`.
 - `terraform.tfstate.backup` giữ lại trạng thái đã deploy để đối chiếu.
 - Xác minh AWS Console: EC2 / VPC / NAT Gateway không còn resource tính phí.
 
-> ⏳ *Tùy chọn:* nếu đã chụp terminal `Destroy complete!` hoặc console trống, lưu **`sceenchot/Destroy.png`** để bổ sung minh chứng trực quan.
+**Minh chứng ảnh:** `sceenchot/Destroy.png` (kèm `terraform state list` rỗng + `terraform show` → `The state file is empty. No resources are represented.`).
 
 ## 9. Nhận xét chung
 
