@@ -20,3 +20,13 @@ lab-key.pub
 # Environment Variables
 .env
 .env.local
+
+# Kaggle API credentials (Lab 16) - never commit
+kaggle.json
+.kaggle/
+
+# Generic private keys / secrets
+*.key
+*.pem
+*.p12
+*.cer
